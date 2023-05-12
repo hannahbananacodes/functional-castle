@@ -25,12 +25,17 @@ container.appendChild(etchDiv);
 function boxFunction() {
     let numOfBoxes = prompt("How many boxes?", "100");
     if (numOfBoxes > 0 && numOfBoxes < 101) {
+        const gridContainer = document.querySelector("#container");
+             while (gridContainer.hasChildNodes()) {
+            gridContainer.removeChild(gridContainer.firstChild);
+        }
         let boxes = numOfBoxes*numOfBoxes;
         let boxHeight = 480/numOfBoxes;
         let numOfPx = boxHeight + "px";
         for (let i = 0; i<boxes; i++) {
             const etchDiv = document.createElement('etchDiv');
             container.classList.add('etchDiv');
+
             
             etchDiv.setAttribute('id','boxes');
             
@@ -46,6 +51,5 @@ function boxFunction() {
     }
     else {
         alert("ERROR");
-    }
-}
+    }}
 
